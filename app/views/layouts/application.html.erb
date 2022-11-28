@@ -11,6 +11,33 @@
   </head>
 
   <body>
+  <% if current_user != nil %>
+    <div>
+      <ul>
+        <li>
+          <%=link_to "Edit Profile", edit_user_registration_path%>
+        </li>
+        <li>
+          <%=link_to "Sign out", destroy_user_session_path, method: :delete %>
+        </li>
+      <%else%>
+        <li>
+          <%=link_to "Sign up", new_user_registration_path%>
+        </li>    
+        <li>
+          <%=link_to "Sign in", user_session_path%>
+        </li>
+      </ul>
+    </div>
+  <%end%>
+
+  <div style="color: green;">
+    <%= notice%>
+  </div>
+
+  <div style="color: red;">
+    <%= alert %>
+  </div>
     <%= yield %>
   </body>
 </html>
