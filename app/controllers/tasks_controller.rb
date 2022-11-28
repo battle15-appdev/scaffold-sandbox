@@ -4,8 +4,6 @@ class TasksController < ApplicationController
   # GET /tasks or /tasks.json
   def index
         @tasks = current_user.tasks
-
-
   end
 
   # GET /tasks/1 or /tasks/1.json
@@ -28,8 +26,8 @@ class TasksController < ApplicationController
       @task.save
     respond_to do |format|
       if @task.save
-        format.html { redirect_to task_url(@task), notice: "Task was successfully created." }
-        format.json { render :show, status: :created, location: @task }
+        format.html { redirect_to tasks_url, notice: "Task was successfully created." }
+        format.json { render :index, status: :created, location: @task }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @task.errors, status: :unprocessable_entity }
@@ -41,8 +39,8 @@ class TasksController < ApplicationController
   def update
     respond_to do |format|
       if @task.update(task_params)
-        format.html { redirect_to task_url(@task), notice: "Task was successfully updated." }
-        format.json { render :show, status: :ok, location: @task }
+        format.html { redirect_to tasks_url, notice: "Task was successfully updated." }
+        format.json { render :index, status: :ok, location: @task }
       else
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @task.errors, status: :unprocessable_entity }
