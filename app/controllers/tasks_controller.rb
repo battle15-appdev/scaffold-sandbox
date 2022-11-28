@@ -3,13 +3,8 @@ class TasksController < ApplicationController
 
   # GET /tasks or /tasks.json
   def index
-      if current_user != nil
-        @tasks = Task.all
-      render "index"
+        @tasks = current_user.tasks
 
-      else
-        redirect_to("/")
-      end
 
   end
 

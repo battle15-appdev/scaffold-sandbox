@@ -1,3 +1,19 @@
+
+<!-----TESING AREA------>
+<!--Idea: try changing the color based on the user's name (all users names are colors)-->
+<br>
+<div style="background-color: #008000;">
+  <div style= "color: #e6ffee;">
+    ------------TESTING AREA-----------
+    <br>
+    Current user Id= <%= current_user.id%>
+    <br>
+    Current User Name = <%= current_user.email%>
+  </div>
+
+</div >
+<!---------------------->
+
 <p id="notice"><%= notice %></p>
 
 <h1>Tasks</h1>
@@ -5,6 +21,7 @@
 <table>
   <thead>
     <tr>
+      <th>User_id</th>
       <th>Title</th>
       <th>Description</th>
       <th>Complete</th>
@@ -15,6 +32,7 @@
   <tbody>
     <% @tasks.each do |task| %>
       <tr>
+        <td><%= task.user.id%></td>        
         <td><%= task.title %></td>
         <td><%= task.description %></td>
         <td><%= task.complete %></td>
