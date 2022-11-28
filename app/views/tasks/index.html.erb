@@ -1,6 +1,7 @@
 
 <!-----TESING AREA------>
 <!--Idea: try changing the color based on the user's name (all users names are colors)-->
+
 <!--<br>
 <div style="background-color: #008000;">
   <div style= "color: #e6ffee;">
@@ -8,16 +9,21 @@
     <br>
     Current user Id= <%#= current_user.id%>
     <br>
-    Current User Name = <%#= current_user.first_name%>
-  </div>
+    Current User Name = <%#= current_user.first_name%> 
+    
+    <br/>Task Count
+    <--task_count is incorrect. Off by 1 task ->
+    <%#= current_user.tasks_count %>
+  </div> 
+  
 
-</div > -->
+</div >-->
 <!---------------------->
 
 <p id="notice"><%= notice %></p>
 
 <!--specify whose tasks the list belongs to-->
-<h1>()'s Tasks (<%= @tasks.count%>)</h1> 
+<h1> <%= current_user.first_name%>'s Tasks (<%= @tasks.count%>)</h1> 
 
 <table>
   <thead>
